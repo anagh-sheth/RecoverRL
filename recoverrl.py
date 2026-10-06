@@ -131,7 +131,7 @@ class FixedSequence:
         return self.actions.pop(0) if self.actions else 6
 
 
-def make_model():
+def make_model(separate_value=False):
     import torch
     from torch import nn
     class Policy(nn.Module):
@@ -139,9 +139,13 @@ def make_model():
             super().__init__()
             self.body = nn.Sequential(nn.Linear(10,64), nn.Tanh(), nn.Linear(64,64), nn.Tanh())
             self.actor, self.critic = nn.Linear(64,7), nn.Linear(64,1)
+            if separate_value:
+                import copy
+                self.value_body = copy.deepcopy(self.body)
         def forward(self, x):
             z = self.body(x)
-            return self.actor(z), self.critic(z).squeeze(-1)
+            value_features = self.value_body(x) if separate_value else z
+            return self.actor(z), self.critic(value_features).squeeze(-1)
     return Policy()
 
 
@@ -152,8 +156,9 @@ def save_model(model, path):
 
 def load_model(path):
     import torch
-    model = make_model()
-    model.load_state_dict(torch.load(path, map_location='cpu', weights_only=True))
+    state = torch.load(path, map_location='cpu', weights_only=True)
+    model = make_model(separate_value=any(k.startswith('value_body.') for k in state))
+    model.load_state_dict(state)
     model.eval()
     return model
 
@@ -172,6 +177,10 @@ def train(args):
     torch.manual_seed(args.seed)
     random.seed(args.seed)
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
+    if (out/'supervised.pt').exists() or (out/'ppo.pt').exists():
+        raise FileExistsError('Run directory already has checkpoints; use a new --out directory')
+    if not args.legacy_ppo and not 0 <= args.seed <= 8:
+        raise ValueError('Training seed must be 0–8 to preserve evaluation seed partitions')
     model = make_model()
     opt = torch.optim.Adam(model.parameters(), lr=3e-4)
     # Seed ranges are disjoint from validation (1M+) and final test (2M+).
@@ -190,6 +199,10 @@ def train(args):
             opt.zero_grad(); loss.backward(); opt.step()
     save_model(model, out/'supervised.pt')
     print(f'Supervised warm start: {len(xs)} demonstration actions', flush=True)
+    if not args.legacy_ppo:
+        from ppo import train_ppo
+        train_ppo(out/'supervised.pt', out, args.steps, args.seed)
+        return
     n, horizon = 16, 128
     envs = [RecoveryEnv() for _ in range(n)]
     next_seed = 10000 + args.seed*100000
@@ -269,8 +282,14 @@ def evaluate(args):
     torch.set_num_threads(1)
     out=Path(args.out); out.mkdir(parents=True,exist_ok=True)
     policies={'Fixed sequence':'fixed','Scripted recovery':'heuristic'}
-    for label,file in [('Supervised','supervised.pt'),('Supervised + PPO','ppo.pt')]:
-        if (out/file).exists(): policies[label]=load_model(out/file)
+    entries=[('Supervised',out/'supervised.pt')]
+    if args.previous_ppo:
+        previous=Path(args.previous_ppo)
+        if not previous.exists(): raise FileNotFoundError(previous)
+        entries.append(('Previous PPO',previous))
+    entries.append(('Supervised + PPO',out/'ppo.pt'))
+    for label,path in entries:
+        if path.exists(): policies[label]=load_model(path)
     results=[]
     for label,policy in policies.items():
         for kind in KINDS:
@@ -287,7 +306,7 @@ def evaluate(args):
     for kind in KINDS:
         for seed in range(args.start_seed,args.start_seed+5):
             replays.append({'kind':kind,'seed':seed,'policies':{label:episode(seed,kind,p,True) for label,p in policies.items()}})
-    payload={'results':results,'replays':replays,'start_seed':args.start_seed,'episodes_per_slice':args.episodes}
+    payload={'results':results,'replays':replays,'start_seed':args.start_seed,'episodes_per_slice':args.episodes,'run':str(out),'action_selection':'greedy'}
     (out/'evaluation.json').write_text(json.dumps(payload,indent=2))
     # External JS lets the replay also open directly from disk without fetch/CORS.
     (Path(__file__).parent/'demo-data.js').write_text('window.RECOVERRL_DATA = '+json.dumps(payload)+';')
@@ -297,7 +316,9 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     subs=parser.add_subparsers(dest='command',required=True)
     tr=subs.add_parser('train'); tr.add_argument('--steps',type=int,default=100000); tr.add_argument('--seed',type=int,default=7); tr.add_argument('--bc-epochs',type=int,default=60); tr.add_argument('--out',default='runs/default')
+    tr.add_argument('--legacy-ppo',action='store_true',help='Use the original shared-network PPO for comparison')
     ev=subs.add_parser('evaluate'); ev.add_argument('--episodes',type=int,default=100); ev.add_argument('--start-seed',type=int,default=1000000); ev.add_argument('--out',default='runs/default')
+    ev.add_argument('--previous-ppo',help='Optional previous checkpoint to show in the same replay and benchmark')
     args=parser.parse_args()
     if args.command=='evaluate' and args.episodes < 1: parser.error('--episodes must be positive')
     if args.command=='train' and (args.steps < 1 or args.bc_epochs < 0): parser.error('Invalid training length')
