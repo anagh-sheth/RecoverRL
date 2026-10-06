@@ -2,6 +2,8 @@
 
 A local, robotics-inspired reinforcement-learning laboratory: a gripper must recover from missed grasps, dropped objects, and stale object positions to place a block in a target.
 
+**New:** [the failure composition benchmark](BENCHMARK.md) adds configurable event counts, probabilities, delays and displacement radii, plus hash-checked train/development/final-test manifests. The original environment remains available unchanged. Use `benchmark.html` for the new viewer and `index.html` for the original one.
+
 **Scope:** this is a 5×5 discrete grid environment, not rigid-body physics, a vision model, an LLM, or real-robot control. The learned policy is a small PyTorch MLP. It is first trained on scripted demonstrations, then updated with PPO. No paid API, account, robot hardware, or GPU is required.
 
 ## Run

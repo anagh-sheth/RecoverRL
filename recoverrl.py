@@ -181,13 +181,20 @@ def train(args):
         raise FileExistsError('Run directory already has checkpoints; use a new --out directory')
     if not args.legacy_ppo and not 0 <= args.seed <= 8:
         raise ValueError('Training seed must be 0–8 to preserve evaluation seed partitions')
+    if args.suite and args.legacy_ppo:
+        raise ValueError('--suite is supported by the corrected trainer only')
     model = make_model()
     opt = torch.optim.Adam(model.parameters(), lr=3e-4)
     # Seed ranges are disjoint from validation (1M+) and final test (2M+).
     xs, ys = [], []
     env = RecoveryEnv()
+    sampler=None
+    if args.suite:
+        from benchmark import ManifestSampler
+        from failure_env import FailureEnv
+        sampler=ManifestSampler(args.suite); env=FailureEnv()
     for seed in range(1500):
-        obs = env.reset(seed, KINDS[seed%4])
+        obs = sampler.reset(env,seed) if sampler else env.reset(seed, KINDS[seed%4])
         while not env.done:
             action = heuristic(obs)
             xs.append(obs); ys.append(action)
@@ -201,7 +208,7 @@ def train(args):
     print(f'Supervised warm start: {len(xs)} demonstration actions', flush=True)
     if not args.legacy_ppo:
         from ppo import train_ppo
-        train_ppo(out/'supervised.pt', out, args.steps, args.seed)
+        train_ppo(out/'supervised.pt', out, args.steps, args.seed,suite=args.suite)
         return
     n, horizon = 16, 128
     envs = [RecoveryEnv() for _ in range(n)]
@@ -317,6 +324,7 @@ def main():
     subs=parser.add_subparsers(dest='command',required=True)
     tr=subs.add_parser('train'); tr.add_argument('--steps',type=int,default=100000); tr.add_argument('--seed',type=int,default=7); tr.add_argument('--bc-epochs',type=int,default=60); tr.add_argument('--out',default='runs/default')
     tr.add_argument('--legacy-ppo',action='store_true',help='Use the original shared-network PPO for comparison')
+    tr.add_argument('--suite',help='Frozen composition suite directory for demonstrations and PPO training')
     ev=subs.add_parser('evaluate'); ev.add_argument('--episodes',type=int,default=100); ev.add_argument('--start-seed',type=int,default=1000000); ev.add_argument('--out',default='runs/default')
     ev.add_argument('--previous-ppo',help='Optional previous checkpoint to show in the same replay and benchmark')
     args=parser.parse_args()

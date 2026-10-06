@@ -1,5 +1,13 @@
 # Development results
 
+## Frozen failure-composition development benchmark
+
+Implemented in `failure_env.py` and `benchmark.py`; see `BENCHMARK.md` for the protocol and exact commands. The suite contains 800 training, 700 development and 800 reserved final-test configurations, frozen before evaluating the learned policies.
+
+On the 700 development scenarios, the fixed sequence completed 201 (28.71%). Scripted recovery, the frozen supervised model and corrected v1 PPO all completed 700 (100%); learned models also scored 100% with reproducibly sampled actions. No model was adapted to the new suite for this evaluation. The 100-action v2 budget differs from the 50-action v1 budget; do not compare the aggregate rates across versions directly.
+
+The training-only manifest adapter passed a 2048-step PPO smoke run. This is pipeline validation, not evidence of adaptation gains. Final-test policies have not been evaluated. Development saturation is reported rather than changing the frozen scenarios to manufacture an RL advantage.
+
 ## PPO stabilization — October 6, 2026
 
 The corrected trainer preserves the supervised policy's completion rate in the measured validation set. It does **not** outperform the already-perfect supervised baseline on this task.

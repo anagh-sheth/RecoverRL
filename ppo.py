@@ -44,8 +44,13 @@ def gae_returns(rewards, dones, values, last, gamma=GAMMA, lam=.95):
 
 
 class Collector:
-    def __init__(self, seed, count=16):
-        self.envs = [RecoveryEnv() for _ in range(count)]
+    def __init__(self, seed, count=16, sampler=None):
+        self.sampler=sampler
+        if sampler:
+            from failure_env import FailureEnv
+            self.envs=[FailureEnv() for _ in range(count)]
+        else:
+            self.envs = [RecoveryEnv() for _ in range(count)]
         self.seed = 10000 + seed*100000
         self.recent = []
         self.obs = np.array([self.reset(e) for e in self.envs], dtype=np.float32)
@@ -54,7 +59,7 @@ class Collector:
         self.seed += 1
         if self.seed >= 1000000:
             raise ValueError('Training exhausted reserved seeds; cannot enter validation partition')
-        return env.reset(self.seed, KINDS[self.seed%4])
+        return self.sampler.reset(env,self.seed) if self.sampler else env.reset(self.seed, KINDS[self.seed%4])
 
     def collect(self, model, horizon=128):
         observations, actions, logprobs, logits_all, rewards, dones, values = ([] for _ in range(7))
@@ -88,11 +93,15 @@ class Collector:
                     advantages=tensor(adv).flatten(), returns=tensor(ret).flatten())
 
 
-def train_ppo(checkpoint, out, steps=100000, seed=7, preset='stable'):
+def train_ppo(checkpoint, out, steps=100000, seed=7, preset='stable', suite=None):
     if not 0 <= seed <= 8:
         raise ValueError('Training seed must be 0–8 to preserve reserved evaluation ranges')
     if steps < 1:
         raise ValueError('Steps must be positive')
+    sampler=None
+    if suite:
+        from benchmark import ManifestSampler
+        sampler=ManifestSampler(suite)
     torch.set_num_threads(1)
     torch.manual_seed(seed)
     checkpoint, out = Path(checkpoint), Path(out)
@@ -113,17 +122,25 @@ def train_ppo(checkpoint, out, steps=100000, seed=7, preset='stable'):
                 num_envs=16,rollout_length=128,value_warmup_steps=0,value_warmup_episodes=256 if stable else 0,
                 torch_version=torch.__version__,numpy_version=np.__version__,
                 checkpoint=str(checkpoint),checkpoint_sha256=hashlib.sha256(checkpoint.read_bytes()).hexdigest())
+    if sampler:
+        config.update(environment=sampler.data['environment'],suite=str(suite),training_manifest_sha256=sampler.sha256)
+        (out/'training_manifest.json').write_text(json.dumps(sampler.data,sort_keys=True,indent=2)+'\n')
     (out/'config.json').write_text(json.dumps(config,indent=2))
     actor_opt=torch.optim.Adam(actor_parameters,lr=config['actor_lr'])
     value_opt=torch.optim.Adam(value_parameters,lr=config['value_lr'])
-    collector=Collector(seed)
+    collector=Collector(seed,sampler=sampler)
     start=time.monotonic()
     if stable:
         # Fit the random critic to full discounted returns from frozen-policy data.
         # lambda=1 targets are recomputed here with complete, finite episodes.
         observations, targets=[],[]
         for s in range(500000+seed*1000,500000+seed*1000+256):
-            env=RecoveryEnv(); obs=env.reset(s,KINDS[s%4]); trajectory=[]
+            if sampler:
+                from failure_env import FailureEnv
+                env=FailureEnv(); obs=sampler.reset(env,s)
+            else:
+                env=RecoveryEnv(); obs=env.reset(s,KINDS[s%4])
+            trajectory=[]
             while not env.done:
                 with torch.no_grad():
                     action=int(Categorical(logits=model(torch.tensor(obs))[0]).sample())
@@ -178,6 +195,7 @@ def train_ppo(checkpoint, out, steps=100000, seed=7, preset='stable'):
     initial=source.state_dict()
     config['actor_weight_delta_l2']=float(sum((v-initial[k]).square().sum() for k,v in model.state_dict().items() if k.startswith(('body.','actor.'))).sqrt())
     config.update(actual_steps=logs[-1]['steps'],total_environment_steps=logs[-1]['steps']+config['value_warmup_steps'],elapsed_seconds=time.monotonic()-start)
+    if sampler: config['unique_training_scenarios_seen']=len(sampler.seen)
     (out/'config.json').write_text(json.dumps(config,indent=2))
     (out/'training.json').write_text(json.dumps({'config':config,'history':logs},indent=2))
     return model
@@ -188,4 +206,5 @@ if __name__=='__main__':
     p.add_argument('--checkpoint',required=True); p.add_argument('--out',required=True)
     p.add_argument('--steps',type=int,default=100000); p.add_argument('--seed',type=int,default=7)
     p.add_argument('--preset',choices=['stable','separated'],default='stable')
-    a=p.parse_args(); train_ppo(a.checkpoint,a.out,a.steps,a.seed,a.preset)
+    p.add_argument('--suite',help='Frozen composition suite directory; only its train split is sampled')
+    a=p.parse_args(); train_ppo(a.checkpoint,a.out,a.steps,a.seed,a.preset,a.suite)

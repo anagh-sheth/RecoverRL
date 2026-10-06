@@ -1,0 +1,9 @@
+{
+  "environment": "recovery-grid-v2.0",
+  "files": {
+    "dev.json": "b69a129e65121f5eada56c58aa78e8be044ac887e00d6efd0b268ca20f7c7880",
+    "test.json": "5031a4c8b59e932448f8fec77ece062abb327f2d924370d51ad24bc802584e76",
+    "train.json": "d4e8da66faad50823fd56cd13dab94595d2a42c58c7ea1a52b6fc3e907478c76"
+  },
+  "version": "recoverrl-composition-v1"
+}
