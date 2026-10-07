@@ -1,5 +1,30 @@
 # Development results
 
+## Grasp choice and deadlines — October 6, 2026
+
+The new two-action experiment is no longer saturated. Fast and secure grasps trade time for reliability under persistent hidden risk. See `GRASP.md` for the task and frozen protocol, and `benchmarks/grasp-v1/development-summary.json` for machine-readable scores, slices, hashes and training configurations.
+
+| Policy | Greedy completion | Sampled completion | Greedy mean reward |
+|---|---:|---:|---:|
+| Always fast | 62.125% | — | 0.5254 |
+| Always secure | 46.875% | — | 0.3647 |
+| Switch after failure (teacher) | 65.625% | — | 0.5594 |
+| Secure when delivery fits | **72.375%** | — | **0.6209** |
+| Supervised seed 6 | 62.125% | 63.250% | 0.5254 |
+| Supervised + PPO seed 6 | 65.625% | 65.375% | 0.5575 |
+| Supervised seed 7 | 62.125% | 62.875% | 0.5254 |
+| Supervised + PPO seed 7 | 65.000% | 65.000% | 0.5522 |
+| Supervised seed 8 | 62.125% | 63.000% | 0.5254 |
+| Supervised + PPO seed 8 | 62.125% | 63.375% | 0.5254 |
+
+Every cell uses the same 800 development scenarios. Three independently initialized supervised models each received 30 epochs on 2,157 teacher transitions, then 100,352 PPO transitions. Critic warmup added 611, 604 and 593 transitions respectively. All final checkpoints were evaluated; the final-test split remains unused by policies.
+
+PPO improves over its supervised starting point in two of three greedy runs, but does not beat the stronger deadline-aware rule in either completion or reward. The supervised checkpoints choose only fast grasps under greedy development evaluation, falling short of their switch-after-failure teacher. Thus these results are confounded by imperfect imitation; they do not establish that RL is better than well-trained supervision. Extra PPO interactions are also additional data. The next controlled experiment should first fit the teacher reliably, add supervision from the stronger deadline-aware teacher, then compare post-training across seeds without altering this frozen benchmark.
+
+The small state/action space still permits strong hand-written policies. Harder stochastic outcomes remove the 100% ceiling but do not automatically make RL the best approach. Fixed navigation and the assumed 10× reliability difference also limit robotics claims.
+
+Validation: 30 unit tests pass, including all previous environments, persistent risk, deadline enforcement, hidden observations, action timing, train-only sampling, and dynamic checkpoint/rollout dimensions. The viewer at `/grasp.html` uses fixed first-seed replays per scenario cell. Full reports/checkpoints remain local under `runs/grasp-v1/`; the compact summary is included with the source.
+
 ## Frozen failure-composition development benchmark
 
 Implemented in `failure_env.py` and `benchmark.py`; see `BENCHMARK.md` for the protocol and exact commands. The suite contains 800 training, 700 development and 800 reserved final-test configurations, frozen before evaluating the learned policies.

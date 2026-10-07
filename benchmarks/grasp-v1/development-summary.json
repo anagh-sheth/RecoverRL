@@ -1,0 +1,3479 @@
+{
+  "checkpoint_sha256": {
+    "runs/grasp-v1/seed6/ppo.pt": "9258065f1b66cb25c261b34ae80fb3c800bd4434171b49756de1e4c16d4dda7c",
+    "runs/grasp-v1/seed6/supervised.pt": "e420ed703e54c82f15e0a7fe1652174c82a4bc4993fb76eaa25e160b1e23691a",
+    "runs/grasp-v1/seed7/ppo.pt": "ec75f3b3ae89668520ba4c81400cdcd319a9142b4e45973d9e5dfb883850cd22",
+    "runs/grasp-v1/seed7/supervised.pt": "626240f2f3a32b5edfe6da592c0aae130b4a6ec30e2e4655a63615a2bc16305f",
+    "runs/grasp-v1/seed8/ppo.pt": "d51c8cb32a5cf583137455f4da982904423afa05752cd9d30d60f379d07b0669",
+    "runs/grasp-v1/seed8/supervised.pt": "985ac6dd28078633611bc8a75c888da7521571849c4d1de893b888c4b04acff9"
+  },
+  "manifest_sha256": "f80a867b70ba39818434a815b1a5930d0a8a44448376cc7c781c5d7e706abf09",
+  "source_sha256": {
+    "grasp_benchmark.py": "bd63b8bf252acaf41624d14c335df4b54b8344be65129805272369c0af262dea",
+    "grasp_env.py": "c4a3ac786df967b66bc926cf25687f14236a012b12d782e2278f19f6a6e8cefd",
+    "ppo.py": "9306834627a1965188a3df053c203d4f93eefa9922f5b67400138ca9cee97f51"
+  },
+  "split": "dev",
+  "version": "grasp-deadline-v1",
+  "report_sha256": "fe4b1cb378966e69286c8a8c15bc519c90dcaaf6badca42716e781f625d517b4",
+  "results": [
+    {
+      "mode": "greedy",
+      "policy": "always-fast",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8765999999999997,
+          "mean_time": 8.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.96,
+          "time_per_success": 8.375
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9096000000000001,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.04
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9176000000000001,
+          "mean_time": 8.24,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 8.24
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.0,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6696262789551477,
+            0.8875637005402612
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7134000000000001,
+          "mean_time": 8.66,
+          "secure_fraction": 0.0,
+          "success_rate": 0.8,
+          "time_per_success": 8.8
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8261999999999997,
+          "mean_time": 9.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.92,
+          "time_per_success": 9.195652173913043
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9057999999999998,
+          "mean_time": 9.42,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.42
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.4815019502239357,
+            0.7413740415742278
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5104000000000002,
+          "mean_time": 10.96,
+          "secure_fraction": 0.0,
+          "success_rate": 0.62,
+          "time_per_success": 10.161290322580646
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.738135428014719,
+            0.9304925473797714
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7461999999999998,
+          "mean_time": 11.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.86,
+          "time_per_success": 10.720930232558139
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.0,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.0,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.0696,
+          "mean_time": 11.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.88888888888889
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.2859999999999998,
+          "mean_time": 13.4,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 12.476190476190476
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.587131920444325,
+          0.6542091596888753
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5254125000000008,
+        "mean_time": 9.58375,
+        "secure_fraction": 0.0,
+        "success_rate": 0.62125,
+        "time_per_success": 9.285714285714286
+      }
+    },
+    {
+      "mode": "greedy",
+      "policy": "always-secure",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.0,
+            0.07135003417431873
+          ],
+          "episodes": 50,
+          "mean_reward": -0.0932,
+          "mean_time": 9.32,
+          "secure_fraction": 1.0,
+          "success_rate": 0.0,
+          "time_per_success": null
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.0,
+            0.07135003417431873
+          ],
+          "episodes": 50,
+          "mean_reward": -0.09199999999999997,
+          "mean_time": 9.2,
+          "secure_fraction": 1.0,
+          "success_rate": 0.0,
+          "time_per_success": null
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.8950431352816304,
+            0.9964608319110235
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8621999999999999,
+          "mean_time": 11.78,
+          "secure_fraction": 1.0,
+          "success_rate": 0.98,
+          "time_per_success": 11.755102040816327
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.8950431352816304,
+            0.9964608319110235
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8681999999999997,
+          "mean_time": 11.18,
+          "secure_fraction": 1.0,
+          "success_rate": 0.98,
+          "time_per_success": 11.061224489795919
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.0,
+            0.07135003417431873
+          ],
+          "episodes": 50,
+          "mean_reward": -0.08259999999999998,
+          "mean_time": 8.26,
+          "secure_fraction": 1.0,
+          "success_rate": 0.0,
+          "time_per_success": null
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.0,
+            0.07135003417431873
+          ],
+          "episodes": 50,
+          "mean_reward": -0.0926,
+          "mean_time": 9.26,
+          "secure_fraction": 1.0,
+          "success_rate": 0.0,
+          "time_per_success": null
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.843,
+          "mean_time": 11.7,
+          "secure_fraction": 1.0,
+          "success_rate": 0.96,
+          "time_per_success": 11.75
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8015999999999999,
+          "mean_time": 11.84,
+          "secure_fraction": 1.0,
+          "success_rate": 0.92,
+          "time_per_success": 11.521739130434783
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0,
+            0.07135003417431873
+          ],
+          "episodes": 50,
+          "mean_reward": -0.09039999999999998,
+          "mean_time": 9.04,
+          "secure_fraction": 1.0,
+          "success_rate": 0.0,
+          "time_per_success": null
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.0,
+            0.07135003417431873
+          ],
+          "episodes": 50,
+          "mean_reward": -0.095,
+          "mean_time": 9.5,
+          "secure_fraction": 1.0,
+          "success_rate": 0.0,
+          "time_per_success": null
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.8378265662912299,
+            0.9793854036353695
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8181999999999996,
+          "mean_time": 12.18,
+          "secure_fraction": 1.0,
+          "success_rate": 0.94,
+          "time_per_success": 12.148936170212766
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7951999999999999,
+          "mean_time": 12.48,
+          "secure_fraction": 1.0,
+          "success_rate": 0.92,
+          "time_per_success": 12.23913043478261
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.0,
+            0.07135003417431873
+          ],
+          "episodes": 50,
+          "mean_reward": -0.0802,
+          "mean_time": 8.02,
+          "secure_fraction": 1.0,
+          "success_rate": 0.0,
+          "time_per_success": null
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.0,
+            0.07135003417431873
+          ],
+          "episodes": 50,
+          "mean_reward": -0.09500000000000003,
+          "mean_time": 9.5,
+          "secure_fraction": 1.0,
+          "success_rate": 0.0,
+          "time_per_success": null
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8066,
+          "mean_time": 11.34,
+          "secure_fraction": 1.0,
+          "success_rate": 0.92,
+          "time_per_success": 11.41304347826087
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7616,
+          "mean_time": 11.84,
+          "secure_fraction": 1.0,
+          "success_rate": 0.88,
+          "time_per_success": 11.636363636363637
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.43440125827610954,
+          0.5033974324112099
+        ],
+        "episodes": 800,
+        "mean_reward": 0.3647249999999995,
+        "mean_time": 10.4025,
+        "secure_fraction": 1.0,
+        "success_rate": 0.46875,
+        "time_per_success": 11.688
+      }
+    },
+    {
+      "mode": "greedy",
+      "policy": "switch-after-failure",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8765999999999997,
+          "mean_time": 8.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.96,
+          "time_per_success": 8.375
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9096000000000001,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.04
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9148000000000001,
+          "mean_time": 8.52,
+          "secure_fraction": 0.09090909090909091,
+          "success_rate": 1.0,
+          "time_per_success": 8.52
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.0,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6696262789551477,
+            0.8875637005402612
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7134000000000001,
+          "mean_time": 8.66,
+          "secure_fraction": 0.0,
+          "success_rate": 0.8,
+          "time_per_success": 8.8
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8261999999999997,
+          "mean_time": 9.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.92,
+          "time_per_success": 9.195652173913043
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8911999999999999,
+          "mean_time": 10.88,
+          "secure_fraction": 0.35,
+          "success_rate": 1.0,
+          "time_per_success": 10.88
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.4815019502239357,
+            0.7413740415742278
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5104000000000002,
+          "mean_time": 10.96,
+          "secure_fraction": 0.0,
+          "success_rate": 0.62,
+          "time_per_success": 10.161290322580646
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8789999999999997,
+          "mean_time": 12.1,
+          "secure_fraction": 0.3977272727272727,
+          "success_rate": 1.0,
+          "time_per_success": 12.1
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.0,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.0,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.0696,
+          "mean_time": 11.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.88888888888889
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.7148551903823401,
+            0.9166267863791231
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7136000000000001,
+          "mean_time": 12.64,
+          "secure_fraction": 0.35294117647058826,
+          "success_rate": 0.84,
+          "time_per_success": 12.261904761904763
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.6226605526219324,
+          0.6883459939414702
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5593500000000005,
+        "mean_time": 9.69,
+        "secure_fraction": 0.0538783093358105,
+        "success_rate": 0.65625,
+        "time_per_success": 9.712380952380952
+      }
+    },
+    {
+      "mode": "greedy",
+      "policy": "secure-when-feasible",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8765999999999997,
+          "mean_time": 8.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.96,
+          "time_per_success": 8.375
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.8950431352816304,
+            0.9964608319110235
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8621999999999999,
+          "mean_time": 11.78,
+          "secure_fraction": 0.9803921568627451,
+          "success_rate": 0.98,
+          "time_per_success": 11.755102040816327
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8885999999999998,
+          "mean_time": 11.14,
+          "secure_fraction": 0.9803921568627451,
+          "success_rate": 1.0,
+          "time_per_success": 11.14
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.0,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6696262789551477,
+            0.8875637005402612
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7134000000000001,
+          "mean_time": 8.66,
+          "secure_fraction": 0.0,
+          "success_rate": 0.8,
+          "time_per_success": 8.8
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.843,
+          "mean_time": 11.7,
+          "secure_fraction": 0.8771929824561403,
+          "success_rate": 0.96,
+          "time_per_success": 11.75
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8827999999999999,
+          "mean_time": 11.72,
+          "secure_fraction": 0.8928571428571429,
+          "success_rate": 1.0,
+          "time_per_success": 11.72
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.8378265662912299,
+            0.9793854036353695
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8181999999999996,
+          "mean_time": 12.18,
+          "secure_fraction": 0.819672131147541,
+          "success_rate": 0.94,
+          "time_per_success": 12.148936170212766
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8358,
+          "mean_time": 12.42,
+          "secure_fraction": 0.7246376811594203,
+          "success_rate": 0.96,
+          "time_per_success": 12.270833333333334
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.0,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.0,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8066,
+          "mean_time": 11.34,
+          "secure_fraction": 0.7936507936507936,
+          "success_rate": 0.92,
+          "time_per_success": 11.41304347826087
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7616,
+          "mean_time": 11.84,
+          "secure_fraction": 0.5617977528089888,
+          "success_rate": 0.88,
+          "time_per_success": 11.636363636363637
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.6917509690892408,
+          0.7536104055895517
+        ],
+        "episodes": 800,
+        "mean_reward": 0.6208750000000002,
+        "mean_time": 10.2875,
+        "secure_fraction": 0.25094102885821834,
+        "success_rate": 0.72375,
+        "time_per_success": 10.72538860103627
+      }
+    },
+    {
+      "mode": "greedy",
+      "policy": "runs/grasp-v1/seed6/supervised.pt",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8765999999999997,
+          "mean_time": 8.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.96,
+          "time_per_success": 8.375
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9096000000000001,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.04
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9176000000000001,
+          "mean_time": 8.24,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 8.24
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.0,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6696262789551477,
+            0.8875637005402612
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7134000000000001,
+          "mean_time": 8.66,
+          "secure_fraction": 0.0,
+          "success_rate": 0.8,
+          "time_per_success": 8.8
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8261999999999997,
+          "mean_time": 9.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.92,
+          "time_per_success": 9.195652173913043
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9057999999999998,
+          "mean_time": 9.42,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.42
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.4815019502239357,
+            0.7413740415742278
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5104000000000002,
+          "mean_time": 10.96,
+          "secure_fraction": 0.0,
+          "success_rate": 0.62,
+          "time_per_success": 10.161290322580646
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.738135428014719,
+            0.9304925473797714
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7461999999999998,
+          "mean_time": 11.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.86,
+          "time_per_success": 10.720930232558139
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.0,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.0,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.0696,
+          "mean_time": 11.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.88888888888889
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.2859999999999998,
+          "mean_time": 13.4,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 12.476190476190476
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.587131920444325,
+          0.6542091596888753
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5254125000000008,
+        "mean_time": 9.58375,
+        "secure_fraction": 0.0,
+        "success_rate": 0.62125,
+        "time_per_success": 9.285714285714286
+      }
+    },
+    {
+      "mode": "sampled",
+      "policy": "runs/grasp-v1/seed6/supervised.pt",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8378265662912299,
+            0.9793854036353695
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8563999999999997,
+          "mean_time": 8.36,
+          "secure_fraction": 0.01694915254237288,
+          "success_rate": 0.94,
+          "time_per_success": 8.297872340425531
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.8950431352816304,
+            0.9964608319110235
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8870000000000001,
+          "mean_time": 9.3,
+          "secure_fraction": 0.07936507936507936,
+          "success_rate": 0.98,
+          "time_per_success": 9.244897959183673
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9126000000000001,
+          "mean_time": 8.74,
+          "secure_fraction": 0.16666666666666666,
+          "success_rate": 1.0,
+          "time_per_success": 8.74
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.012048192771084338,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6258705062480763,
+            0.8570274759812779
+          ],
+          "episodes": 50,
+          "mean_reward": 0.6732,
+          "mean_time": 8.68,
+          "secure_fraction": 0.022727272727272728,
+          "success_rate": 0.76,
+          "time_per_success": 8.657894736842104
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.7863950966521162,
+            0.956524876008429
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8038,
+          "mean_time": 9.62,
+          "secure_fraction": 0.05813953488372093,
+          "success_rate": 0.9,
+          "time_per_success": 9.28888888888889
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8977999999999997,
+          "mean_time": 10.22,
+          "secure_fraction": 0.23376623376623376,
+          "success_rate": 1.0,
+          "time_per_success": 10.22
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.006289308176100629,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.011976047904191617,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.5014076201030195,
+            0.7586143703281711
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5298000000000002,
+          "mean_time": 11.02,
+          "secure_fraction": 0.028089887640449437,
+          "success_rate": 0.64,
+          "time_per_success": 10.375
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7607999999999997,
+          "mean_time": 11.92,
+          "secure_fraction": 0.136986301369863,
+          "success_rate": 0.88,
+          "time_per_success": 11.363636363636363
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.004761904761904762,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.024,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.12753786224302288,
+            0.35241815689459555
+          ],
+          "episodes": 50,
+          "mean_reward": 0.10960000000000003,
+          "mean_time": 11.04,
+          "secure_fraction": 0.022151898734177215,
+          "success_rate": 0.22,
+          "time_per_success": 9.818181818181818
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.4815019502239357,
+            0.7413740415742278
+          ],
+          "episodes": 50,
+          "mean_reward": 0.49040000000000006,
+          "mean_time": 12.96,
+          "secure_fraction": 0.0812720848056537,
+          "success_rate": 0.62,
+          "time_per_success": 12.096774193548388
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.598531186530005,
+          0.6652023649557602
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5354125000000003,
+        "mean_time": 9.70875,
+        "secure_fraction": 0.04659340659340659,
+        "success_rate": 0.6325,
+        "time_per_success": 9.543478260869565
+      }
+    },
+    {
+      "mode": "greedy",
+      "policy": "runs/grasp-v1/seed6/ppo.pt",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8765999999999997,
+          "mean_time": 8.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.96,
+          "time_per_success": 8.375
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9096000000000001,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.04
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8885999999999998,
+          "mean_time": 11.14,
+          "secure_fraction": 0.9803921568627451,
+          "success_rate": 1.0,
+          "time_per_success": 11.14
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.0,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6696262789551477,
+            0.8875637005402612
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7134000000000001,
+          "mean_time": 8.66,
+          "secure_fraction": 0.0,
+          "success_rate": 0.8,
+          "time_per_success": 8.8
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8261999999999997,
+          "mean_time": 9.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.92,
+          "time_per_success": 9.195652173913043
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8827999999999999,
+          "mean_time": 11.72,
+          "secure_fraction": 0.8928571428571429,
+          "success_rate": 1.0,
+          "time_per_success": 11.72
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.4815019502239357,
+            0.7413740415742278
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5104000000000002,
+          "mean_time": 10.96,
+          "secure_fraction": 0.0,
+          "success_rate": 0.62,
+          "time_per_success": 10.161290322580646
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8358,
+          "mean_time": 12.42,
+          "secure_fraction": 0.7246376811594203,
+          "success_rate": 0.96,
+          "time_per_success": 12.270833333333334
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.0,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.0,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.0696,
+          "mean_time": 11.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.88888888888889
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7616,
+          "mean_time": 11.84,
+          "secure_fraction": 0.5617977528089888,
+          "success_rate": 0.88,
+          "time_per_success": 11.636363636363637
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.6226605526219324,
+          0.6883459939414702
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5574875000000004,
+        "mean_time": 9.87625,
+        "secure_fraction": 0.09713453132588636,
+        "success_rate": 0.65625,
+        "time_per_success": 10.005714285714285
+      }
+    },
+    {
+      "mode": "sampled",
+      "policy": "runs/grasp-v1/seed6/ppo.pt",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8378265662912299,
+            0.9793854036353695
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8563999999999997,
+          "mean_time": 8.36,
+          "secure_fraction": 0.01694915254237288,
+          "success_rate": 0.94,
+          "time_per_success": 8.297872340425531
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.8950431352816304,
+            0.9964608319110235
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8866,
+          "mean_time": 9.34,
+          "secure_fraction": 0.0967741935483871,
+          "success_rate": 0.98,
+          "time_per_success": 9.285714285714286
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.895,
+          "mean_time": 10.5,
+          "secure_fraction": 0.75,
+          "success_rate": 1.0,
+          "time_per_success": 10.5
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.012048192771084338,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6475818431054045,
+            0.8724621377569771
+          ],
+          "episodes": 50,
+          "mean_reward": 0.6932000000000003,
+          "mean_time": 8.68,
+          "secure_fraction": 0.011363636363636364,
+          "success_rate": 0.78,
+          "time_per_success": 8.820512820512821
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.7863950966521162,
+            0.956524876008429
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8038,
+          "mean_time": 9.62,
+          "secure_fraction": 0.05813953488372093,
+          "success_rate": 0.9,
+          "time_per_success": 9.28888888888889
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8865999999999998,
+          "mean_time": 11.34,
+          "secure_fraction": 0.6885245901639344,
+          "success_rate": 1.0,
+          "time_per_success": 11.34
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.011976047904191617,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.5014076201030195,
+            0.7586143703281711
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5288,
+          "mean_time": 11.12,
+          "secure_fraction": 0.033707865168539325,
+          "success_rate": 0.64,
+          "time_per_success": 10.53125
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.8378265662912299,
+            0.9793854036353695
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8168,
+          "mean_time": 12.32,
+          "secure_fraction": 0.38235294117647056,
+          "success_rate": 0.94,
+          "time_per_success": 12.02127659574468
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.0,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.0038314176245210726,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.14297252401872207,
+            0.3741294937519236
+          ],
+          "episodes": 50,
+          "mean_reward": 0.12960000000000002,
+          "mean_time": 11.04,
+          "secure_fraction": 0.01597444089456869,
+          "success_rate": 0.24,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.738135428014719,
+            0.9304925473797714
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7394,
+          "mean_time": 12.06,
+          "secure_fraction": 0.4528301886792453,
+          "success_rate": 0.86,
+          "time_per_success": 11.674418604651162
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.6201164311992543,
+          0.6859140106191338
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5550875000000004,
+        "mean_time": 9.86625,
+        "secure_fraction": 0.09574987787005373,
+        "success_rate": 0.65375,
+        "time_per_success": 9.952198852772467
+      }
+    },
+    {
+      "mode": "greedy",
+      "policy": "runs/grasp-v1/seed7/supervised.pt",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8765999999999997,
+          "mean_time": 8.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.96,
+          "time_per_success": 8.375
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9096000000000001,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.04
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9176000000000001,
+          "mean_time": 8.24,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 8.24
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.0,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6696262789551477,
+            0.8875637005402612
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7134000000000001,
+          "mean_time": 8.66,
+          "secure_fraction": 0.0,
+          "success_rate": 0.8,
+          "time_per_success": 8.8
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8261999999999997,
+          "mean_time": 9.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.92,
+          "time_per_success": 9.195652173913043
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9057999999999998,
+          "mean_time": 9.42,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.42
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.4815019502239357,
+            0.7413740415742278
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5104000000000002,
+          "mean_time": 10.96,
+          "secure_fraction": 0.0,
+          "success_rate": 0.62,
+          "time_per_success": 10.161290322580646
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.738135428014719,
+            0.9304925473797714
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7461999999999998,
+          "mean_time": 11.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.86,
+          "time_per_success": 10.720930232558139
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.0,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.0,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.0696,
+          "mean_time": 11.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.88888888888889
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.2859999999999998,
+          "mean_time": 13.4,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 12.476190476190476
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.587131920444325,
+          0.6542091596888753
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5254125000000008,
+        "mean_time": 9.58375,
+        "secure_fraction": 0.0,
+        "success_rate": 0.62125,
+        "time_per_success": 9.285714285714286
+      }
+    },
+    {
+      "mode": "sampled",
+      "policy": "runs/grasp-v1/seed7/supervised.pt",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8378265662912299,
+            0.9793854036353695
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8563999999999997,
+          "mean_time": 8.36,
+          "secure_fraction": 0.01694915254237288,
+          "success_rate": 0.94,
+          "time_per_success": 8.297872340425531
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.8950431352816304,
+            0.9964608319110235
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8870000000000001,
+          "mean_time": 9.3,
+          "secure_fraction": 0.07936507936507936,
+          "success_rate": 0.98,
+          "time_per_success": 9.244897959183673
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9131999999999999,
+          "mean_time": 8.68,
+          "secure_fraction": 0.14814814814814814,
+          "success_rate": 1.0,
+          "time_per_success": 8.68
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.012048192771084338,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.5833461285401034,
+            0.8252598564231963
+          ],
+          "episodes": 50,
+          "mean_reward": 0.633,
+          "mean_time": 8.7,
+          "secure_fraction": 0.05747126436781609,
+          "success_rate": 0.72,
+          "time_per_success": 8.694444444444445
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.7863950966521162,
+            0.956524876008429
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8038,
+          "mean_time": 9.62,
+          "secure_fraction": 0.05813953488372093,
+          "success_rate": 0.9,
+          "time_per_success": 9.28888888888889
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8977999999999997,
+          "mean_time": 10.22,
+          "secure_fraction": 0.23376623376623376,
+          "success_rate": 1.0,
+          "time_per_success": 10.22
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.006289308176100629,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.011976047904191617,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.5014076201030195,
+            0.7586143703281711
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5298000000000002,
+          "mean_time": 11.02,
+          "secure_fraction": 0.028089887640449437,
+          "success_rate": 0.64,
+          "time_per_success": 10.375
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.738135428014719,
+            0.9304925473797714
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7401999999999999,
+          "mean_time": 11.98,
+          "secure_fraction": 0.12337662337662338,
+          "success_rate": 0.86,
+          "time_per_success": 11.418604651162791
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.009569377990430622,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.028688524590163935,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.12753786224302288,
+            0.35241815689459555
+          ],
+          "episodes": 50,
+          "mean_reward": 0.10960000000000003,
+          "mean_time": 11.04,
+          "secure_fraction": 0.022151898734177215,
+          "success_rate": 0.22,
+          "time_per_success": 9.818181818181818
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.4815019502239357,
+            0.7413740415742278
+          ],
+          "episodes": 50,
+          "mean_reward": 0.49040000000000006,
+          "mean_time": 12.96,
+          "secure_fraction": 0.0812720848056537,
+          "success_rate": 0.62,
+          "time_per_success": 12.096774193548388
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.5947292917938428,
+          0.6615401025744009
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5316500000000004,
+        "mean_time": 9.71,
+        "secure_fraction": 0.04791208791208791,
+        "success_rate": 0.62875,
+        "time_per_success": 9.544731610337973
+      }
+    },
+    {
+      "mode": "greedy",
+      "policy": "runs/grasp-v1/seed7/ppo.pt",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8765999999999997,
+          "mean_time": 8.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.96,
+          "time_per_success": 8.375
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9096000000000001,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.04
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8952000000000001,
+          "mean_time": 10.48,
+          "secure_fraction": 0.7647058823529411,
+          "success_rate": 1.0,
+          "time_per_success": 10.48
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.0,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6696262789551477,
+            0.8875637005402612
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7134000000000001,
+          "mean_time": 8.66,
+          "secure_fraction": 0.0,
+          "success_rate": 0.8,
+          "time_per_success": 8.8
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8261999999999997,
+          "mean_time": 9.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.92,
+          "time_per_success": 9.195652173913043
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8883999999999999,
+          "mean_time": 11.16,
+          "secure_fraction": 0.5522388059701493,
+          "success_rate": 1.0,
+          "time_per_success": 11.16
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.4815019502239357,
+            0.7413740415742278
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5104000000000002,
+          "mean_time": 10.96,
+          "secure_fraction": 0.0,
+          "success_rate": 0.62,
+          "time_per_success": 10.161290322580646
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8003999999999998,
+          "mean_time": 11.96,
+          "secure_fraction": 0.32038834951456313,
+          "success_rate": 0.92,
+          "time_per_success": 11.478260869565217
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.0,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.0,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.0696,
+          "mean_time": 11.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.88888888888889
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.6920368054529739,
+            0.902299172675462
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7,
+          "mean_time": 12.0,
+          "secure_fraction": 0.2949640287769784,
+          "success_rate": 0.82,
+          "time_per_success": 11.365853658536585
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.6163021177039385,
+          0.682264166996928
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5521874999999999,
+        "mean_time": 9.78125,
+        "secure_fraction": 0.06963788300835655,
+        "success_rate": 0.65,
+        "time_per_success": 9.778846153846153
+      }
+    },
+    {
+      "mode": "sampled",
+      "policy": "runs/grasp-v1/seed7/ppo.pt",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8378265662912299,
+            0.9793854036353695
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8563999999999997,
+          "mean_time": 8.36,
+          "secure_fraction": 0.01694915254237288,
+          "success_rate": 0.94,
+          "time_per_success": 8.297872340425531
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.8950431352816304,
+            0.9964608319110235
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8866,
+          "mean_time": 9.34,
+          "secure_fraction": 0.0967741935483871,
+          "success_rate": 0.98,
+          "time_per_success": 9.285714285714286
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9002,
+          "mean_time": 9.98,
+          "secure_fraction": 0.5660377358490566,
+          "success_rate": 1.0,
+          "time_per_success": 9.98
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.012048192771084338,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6475818431054045,
+            0.8724621377569771
+          ],
+          "episodes": 50,
+          "mean_reward": 0.6932000000000003,
+          "mean_time": 8.68,
+          "secure_fraction": 0.011363636363636364,
+          "success_rate": 0.78,
+          "time_per_success": 8.820512820512821
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.7863950966521162,
+            0.956524876008429
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8038,
+          "mean_time": 9.62,
+          "secure_fraction": 0.05813953488372093,
+          "success_rate": 0.9,
+          "time_per_success": 9.28888888888889
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8905999999999997,
+          "mean_time": 10.94,
+          "secure_fraction": 0.5230769230769231,
+          "success_rate": 1.0,
+          "time_per_success": 10.94
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.011976047904191617,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.5014076201030195,
+            0.7586143703281711
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5288,
+          "mean_time": 11.12,
+          "secure_fraction": 0.04597701149425287,
+          "success_rate": 0.64,
+          "time_per_success": 10.53125
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.8378265662912299,
+            0.9793854036353695
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8171999999999997,
+          "mean_time": 12.28,
+          "secure_fraction": 0.3490566037735849,
+          "success_rate": 0.94,
+          "time_per_success": 11.97872340425532
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.004761904761904762,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.01568627450980392,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.12753786224302288,
+            0.35241815689459555
+          ],
+          "episodes": 50,
+          "mean_reward": 0.10960000000000003,
+          "mean_time": 11.04,
+          "secure_fraction": 0.01557632398753894,
+          "success_rate": 0.22,
+          "time_per_success": 9.818181818181818
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.6920368054529739,
+            0.902299172675462
+          ],
+          "episodes": 50,
+          "mean_reward": 0.6973999999999999,
+          "mean_time": 12.26,
+          "secure_fraction": 0.3235294117647059,
+          "success_rate": 0.82,
+          "time_per_success": 12.0
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.6163021177039385,
+          0.682264166996928
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5518125000000002,
+        "mean_time": 9.81875,
+        "secure_fraction": 0.08605769230769231,
+        "success_rate": 0.65,
+        "time_per_success": 9.863461538461538
+      }
+    },
+    {
+      "mode": "greedy",
+      "policy": "runs/grasp-v1/seed8/supervised.pt",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8765999999999997,
+          "mean_time": 8.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.96,
+          "time_per_success": 8.375
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9096000000000001,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.04
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9176000000000001,
+          "mean_time": 8.24,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 8.24
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.0,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6696262789551477,
+            0.8875637005402612
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7134000000000001,
+          "mean_time": 8.66,
+          "secure_fraction": 0.0,
+          "success_rate": 0.8,
+          "time_per_success": 8.8
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8261999999999997,
+          "mean_time": 9.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.92,
+          "time_per_success": 9.195652173913043
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9057999999999998,
+          "mean_time": 9.42,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.42
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.4815019502239357,
+            0.7413740415742278
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5104000000000002,
+          "mean_time": 10.96,
+          "secure_fraction": 0.0,
+          "success_rate": 0.62,
+          "time_per_success": 10.161290322580646
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.738135428014719,
+            0.9304925473797714
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7461999999999998,
+          "mean_time": 11.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.86,
+          "time_per_success": 10.720930232558139
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.0,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.0,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.0696,
+          "mean_time": 11.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.88888888888889
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.2859999999999998,
+          "mean_time": 13.4,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 12.476190476190476
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.587131920444325,
+          0.6542091596888753
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5254125000000008,
+        "mean_time": 9.58375,
+        "secure_fraction": 0.0,
+        "success_rate": 0.62125,
+        "time_per_success": 9.285714285714286
+      }
+    },
+    {
+      "mode": "sampled",
+      "policy": "runs/grasp-v1/seed8/supervised.pt",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8378265662912299,
+            0.9793854036353695
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8563999999999997,
+          "mean_time": 8.36,
+          "secure_fraction": 0.01694915254237288,
+          "success_rate": 0.94,
+          "time_per_success": 8.297872340425531
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.8950431352816304,
+            0.9964608319110235
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8870000000000001,
+          "mean_time": 9.3,
+          "secure_fraction": 0.07936507936507936,
+          "success_rate": 0.98,
+          "time_per_success": 9.244897959183673
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9138,
+          "mean_time": 8.62,
+          "secure_fraction": 0.12962962962962962,
+          "success_rate": 1.0,
+          "time_per_success": 8.62
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.012048192771084338,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.5833461285401034,
+            0.8252598564231963
+          ],
+          "episodes": 50,
+          "mean_reward": 0.633,
+          "mean_time": 8.7,
+          "secure_fraction": 0.05747126436781609,
+          "success_rate": 0.72,
+          "time_per_success": 8.694444444444445
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.7863950966521162,
+            0.956524876008429
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8038,
+          "mean_time": 9.62,
+          "secure_fraction": 0.05813953488372093,
+          "success_rate": 0.9,
+          "time_per_success": 9.28888888888889
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8985999999999997,
+          "mean_time": 10.14,
+          "secure_fraction": 0.20253164556962025,
+          "success_rate": 1.0,
+          "time_per_success": 10.14
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.006289308176100629,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.011976047904191617,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.5014076201030195,
+            0.7586143703281711
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5298000000000002,
+          "mean_time": 11.02,
+          "secure_fraction": 0.028089887640449437,
+          "success_rate": 0.64,
+          "time_per_success": 10.375
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.738135428014719,
+            0.9304925473797714
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7401999999999999,
+          "mean_time": 11.98,
+          "secure_fraction": 0.11612903225806452,
+          "success_rate": 0.86,
+          "time_per_success": 11.418604651162791
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.009569377990430622,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.038135593220338986,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.12753786224302288,
+            0.35241815689459555
+          ],
+          "episodes": 50,
+          "mean_reward": 0.10960000000000003,
+          "mean_time": 11.04,
+          "secure_fraction": 0.022151898734177215,
+          "success_rate": 0.22,
+          "time_per_success": 9.818181818181818
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.5014076201030195,
+            0.7586143703281711
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5102,
+          "mean_time": 12.98,
+          "secure_fraction": 0.07317073170731707,
+          "success_rate": 0.64,
+          "time_per_success": 12.21875
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.5959963511946703,
+          0.6627610955460806
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5329750000000003,
+        "mean_time": 9.7025,
+        "secure_fraction": 0.04617414248021108,
+        "success_rate": 0.63,
+        "time_per_success": 9.543650793650794
+      }
+    },
+    {
+      "mode": "greedy",
+      "policy": "runs/grasp-v1/seed8/ppo.pt",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8765999999999997,
+          "mean_time": 8.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.96,
+          "time_per_success": 8.375
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9096000000000001,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.04
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9176000000000001,
+          "mean_time": 8.24,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 8.24
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.0,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6696262789551477,
+            0.8875637005402612
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7134000000000001,
+          "mean_time": 8.66,
+          "secure_fraction": 0.0,
+          "success_rate": 0.8,
+          "time_per_success": 8.8
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.8116149745493629,
+            0.9684509967442093
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8261999999999997,
+          "mean_time": 9.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.92,
+          "time_per_success": 9.195652173913043
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9057999999999998,
+          "mean_time": 9.42,
+          "secure_fraction": 0.0,
+          "success_rate": 1.0,
+          "time_per_success": 9.42
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.4815019502239357,
+            0.7413740415742278
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5104000000000002,
+          "mean_time": 10.96,
+          "secure_fraction": 0.0,
+          "success_rate": 0.62,
+          "time_per_success": 10.161290322580646
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.738135428014719,
+            0.9304925473797714
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7461999999999998,
+          "mean_time": 11.38,
+          "secure_fraction": 0.0,
+          "success_rate": 0.86,
+          "time_per_success": 10.720930232558139
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.0,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.0,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.0696,
+          "mean_time": 11.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.88888888888889
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.2859999999999998,
+          "mean_time": 13.4,
+          "secure_fraction": 0.0,
+          "success_rate": 0.42,
+          "time_per_success": 12.476190476190476
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.587131920444325,
+          0.6542091596888753
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5254125000000008,
+        "mean_time": 9.58375,
+        "secure_fraction": 0.0,
+        "success_rate": 0.62125,
+        "time_per_success": 9.285714285714286
+      }
+    },
+    {
+      "mode": "sampled",
+      "policy": "runs/grasp-v1/seed8/ppo.pt",
+      "slices": {
+        "risk=0.15/slack=0": {
+          "ci95": [
+            0.7619492111337642,
+            0.9438247628937535
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7868,
+          "mean_time": 9.32,
+          "secure_fraction": 0.0,
+          "success_rate": 0.88,
+          "time_per_success": 9.25
+        },
+        "risk=0.15/slack=1": {
+          "ci95": [
+            0.8653966212204534,
+            0.9889613473391734
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8765999999999997,
+          "mean_time": 8.34,
+          "secure_fraction": 0.0,
+          "success_rate": 0.96,
+          "time_per_success": 8.375
+        },
+        "risk=0.15/slack=3": {
+          "ci95": [
+            0.8950431352816304,
+            0.9964608319110235
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8870000000000001,
+          "mean_time": 9.3,
+          "secure_fraction": 0.07936507936507936,
+          "success_rate": 0.98,
+          "time_per_success": 9.244897959183673
+        },
+        "risk=0.15/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.9107999999999999,
+          "mean_time": 8.92,
+          "secure_fraction": 0.2222222222222222,
+          "success_rate": 1.0,
+          "time_per_success": 8.92
+        },
+        "risk=0.45/slack=0": {
+          "ci95": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47740000000000016,
+          "mean_time": 8.26,
+          "secure_fraction": 0.012048192771084338,
+          "success_rate": 0.56,
+          "time_per_success": 8.142857142857142
+        },
+        "risk=0.45/slack=1": {
+          "ci95": [
+            0.6475818431054045,
+            0.8724621377569771
+          ],
+          "episodes": 50,
+          "mean_reward": 0.6932000000000003,
+          "mean_time": 8.68,
+          "secure_fraction": 0.011363636363636364,
+          "success_rate": 0.78,
+          "time_per_success": 8.820512820512821
+        },
+        "risk=0.45/slack=3": {
+          "ci95": [
+            0.7863950966521162,
+            0.956524876008429
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8038,
+          "mean_time": 9.62,
+          "secure_fraction": 0.05813953488372093,
+          "success_rate": 0.9,
+          "time_per_success": 9.28888888888889
+        },
+        "risk=0.45/slack=6": {
+          "ci95": [
+            0.9286499658256813,
+            1.0
+          ],
+          "episodes": 50,
+          "mean_reward": 0.8969999999999998,
+          "mean_time": 10.3,
+          "secure_fraction": 0.26666666666666666,
+          "success_rate": 1.0,
+          "time_per_success": 10.3
+        },
+        "risk=0.75/slack=0": {
+          "ci95": [
+            0.0977008273245379,
+            0.3079631945470261
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 9.04,
+          "secure_fraction": 0.0,
+          "success_rate": 0.18,
+          "time_per_success": 9.555555555555555
+        },
+        "risk=0.75/slack=1": {
+          "ci95": [
+            0.2937479723456693,
+            0.5576680331222217
+          ],
+          "episodes": 50,
+          "mean_reward": 0.3266000000000001,
+          "mean_time": 9.34,
+          "secure_fraction": 0.011976047904191617,
+          "success_rate": 0.42,
+          "time_per_success": 9.238095238095237
+        },
+        "risk=0.75/slack=3": {
+          "ci95": [
+            0.5014076201030195,
+            0.7586143703281711
+          ],
+          "episodes": 50,
+          "mean_reward": 0.5298000000000002,
+          "mean_time": 11.02,
+          "secure_fraction": 0.02197802197802198,
+          "success_rate": 0.64,
+          "time_per_success": 10.375
+        },
+        "risk=0.75/slack=6": {
+          "ci95": [
+            0.7863950966521162,
+            0.956524876008429
+          ],
+          "episodes": 50,
+          "mean_reward": 0.7801999999999998,
+          "mean_time": 11.98,
+          "secure_fraction": 0.16666666666666666,
+          "success_rate": 0.9,
+          "time_per_success": 11.466666666666667
+        },
+        "risk=0.95/slack=0": {
+          "ci95": [
+            0.020614596364630478,
+            0.16217343370877002
+          ],
+          "episodes": 50,
+          "mean_reward": -0.020200000000000006,
+          "mean_time": 8.02,
+          "secure_fraction": 0.004761904761904762,
+          "success_rate": 0.06,
+          "time_per_success": 6.333333333333333
+        },
+        "risk=0.95/slack=1": {
+          "ci95": [
+            0.031549003255790686,
+            0.18838502545063704
+          ],
+          "episodes": 50,
+          "mean_reward": -0.015000000000000029,
+          "mean_time": 9.5,
+          "secure_fraction": 0.01568627450980392,
+          "success_rate": 0.08,
+          "time_per_success": 10.5
+        },
+        "risk=0.95/slack=3": {
+          "ci95": [
+            0.11243629945973886,
+            0.3303737210448524
+          ],
+          "episodes": 50,
+          "mean_reward": 0.08959999999999999,
+          "mean_time": 11.04,
+          "secure_fraction": 0.00906344410876133,
+          "success_rate": 0.2,
+          "time_per_success": 9.7
+        },
+        "risk=0.95/slack=6": {
+          "ci95": [
+            0.4618118910275937,
+            0.7239181021375425
+          ],
+          "episodes": 50,
+          "mean_reward": 0.47040000000000015,
+          "mean_time": 12.96,
+          "secure_fraction": 0.08013937282229965,
+          "success_rate": 0.6,
+          "time_per_success": 12.0
+        }
+      },
+      "summary": {
+        "ci95": [
+          0.5997989634708084,
+          0.6664226403874643
+        ],
+        "episodes": 800,
+        "mean_reward": 0.5364750000000005,
+        "mean_time": 9.7275,
+        "secure_fraction": 0.0453554295682512,
+        "success_rate": 0.63375,
+        "time_per_success": 9.583826429980276
+      }
+    }
+  ],
+  "training_configs": {
+    "6": {
+      "preset": "stable",
+      "seed": 6,
+      "requested_steps": 100000,
+      "actor_lr": 3e-05,
+      "value_lr": 0.0003,
+      "entropy_coef": 0.001,
+      "target_kl": 0.01,
+      "gamma": 1.0,
+      "gae_lambda": 0.95,
+      "clip": 0.2,
+      "epochs": 4,
+      "batch_size": 256,
+      "num_envs": 16,
+      "rollout_length": 128,
+      "value_warmup_steps": 611,
+      "value_warmup_episodes": 256,
+      "torch_version": "2.2.2",
+      "numpy_version": "1.26.4",
+      "checkpoint": "runs/grasp-v1/seed6/supervised.pt",
+      "checkpoint_sha256": "e420ed703e54c82f15e0a7fe1652174c82a4bc4993fb76eaa25e160b1e23691a",
+      "input_dim": 6,
+      "action_dim": 2,
+      "environment": "grasp-deadline-v1",
+      "suite": "None",
+      "training_manifest_sha256": "d7d7be5f2abcb5227007c8aa0f2d7bde7b19dc31b273c289b03797d3f0324bfb",
+      "actor_weight_delta_l2": 1.4153196811676025,
+      "actual_steps": 100352,
+      "total_environment_steps": 100963,
+      "elapsed_seconds": 24.303804196009878,
+      "unique_training_scenarios_seen": 960
+    },
+    "7": {
+      "preset": "stable",
+      "seed": 7,
+      "requested_steps": 100000,
+      "actor_lr": 3e-05,
+      "value_lr": 0.0003,
+      "entropy_coef": 0.001,
+      "target_kl": 0.01,
+      "gamma": 1.0,
+      "gae_lambda": 0.95,
+      "clip": 0.2,
+      "epochs": 4,
+      "batch_size": 256,
+      "num_envs": 16,
+      "rollout_length": 128,
+      "value_warmup_steps": 604,
+      "value_warmup_episodes": 256,
+      "torch_version": "2.2.2",
+      "numpy_version": "1.26.4",
+      "checkpoint": "runs/grasp-v1/seed7/supervised.pt",
+      "checkpoint_sha256": "626240f2f3a32b5edfe6da592c0aae130b4a6ec30e2e4655a63615a2bc16305f",
+      "input_dim": 6,
+      "action_dim": 2,
+      "environment": "grasp-deadline-v1",
+      "suite": "None",
+      "training_manifest_sha256": "d7d7be5f2abcb5227007c8aa0f2d7bde7b19dc31b273c289b03797d3f0324bfb",
+      "actor_weight_delta_l2": 1.3287700414657593,
+      "actual_steps": 100352,
+      "total_environment_steps": 100956,
+      "elapsed_seconds": 23.908598013047595,
+      "unique_training_scenarios_seen": 960
+    },
+    "8": {
+      "preset": "stable",
+      "seed": 8,
+      "requested_steps": 100000,
+      "actor_lr": 3e-05,
+      "value_lr": 0.0003,
+      "entropy_coef": 0.001,
+      "target_kl": 0.01,
+      "gamma": 1.0,
+      "gae_lambda": 0.95,
+      "clip": 0.2,
+      "epochs": 4,
+      "batch_size": 256,
+      "num_envs": 16,
+      "rollout_length": 128,
+      "value_warmup_steps": 593,
+      "value_warmup_episodes": 256,
+      "torch_version": "2.2.2",
+      "numpy_version": "1.26.4",
+      "checkpoint": "runs/grasp-v1/seed8/supervised.pt",
+      "checkpoint_sha256": "985ac6dd28078633611bc8a75c888da7521571849c4d1de893b888c4b04acff9",
+      "input_dim": 6,
+      "action_dim": 2,
+      "environment": "grasp-deadline-v1",
+      "suite": "None",
+      "training_manifest_sha256": "d7d7be5f2abcb5227007c8aa0f2d7bde7b19dc31b273c289b03797d3f0324bfb",
+      "actor_weight_delta_l2": 0.9579806923866272,
+      "actual_steps": 100352,
+      "total_environment_steps": 100945,
+      "elapsed_seconds": 24.06019240996102,
+      "unique_training_scenarios_seen": 960
+    }
+  }
+}

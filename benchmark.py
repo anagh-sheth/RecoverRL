@@ -94,6 +94,8 @@ class ManifestSampler:
             raise ValueError('Composition training must contain single failure families only')
         self.seen=set()
 
+    def make_env(self): return FailureEnv()
+
     def reset(self,env,seed):
         # Stable hash avoids sequential reset seeds accidentally aligning profiles.
         idx=int(digest(str(seed).encode())[:16],16)%len(self.rows)

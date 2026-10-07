@@ -21,7 +21,7 @@ from recoverrl import GAMMA, KINDS, RecoveryEnv, load_model, make_model, save_mo
 
 def independent_value_model(source):
     """Copy all existing logits exactly; only value features gain independent weights."""
-    model = make_model(separate_value=True)
+    model = make_model(separate_value=True,input_dim=source.body[0].in_features,action_dim=source.actor.out_features)
     state = source.state_dict()
     if not any(k.startswith('value_body.') for k in state):
         state = dict(state)
@@ -46,9 +46,9 @@ def gae_returns(rewards, dones, values, last, gamma=GAMMA, lam=.95):
 class Collector:
     def __init__(self, seed, count=16, sampler=None):
         self.sampler=sampler
+        self.gamma=getattr(sampler,'gamma',GAMMA)
         if sampler:
-            from failure_env import FailureEnv
-            self.envs=[FailureEnv() for _ in range(count)]
+            self.envs=[sampler.make_env() for _ in range(count)]
         else:
             self.envs = [RecoveryEnv() for _ in range(count)]
         self.seed = 10000 + seed*100000
@@ -85,20 +85,21 @@ class Collector:
             self.obs=np.array(following,dtype=np.float32)
             rewards.append(rs); dones.append(ds)
         with torch.no_grad(): last=model(torch.tensor(self.obs))[1].numpy()
-        adv,ret=gae_returns(np.array(rewards),np.array(dones),np.array(values),last)
+        adv,ret=gae_returns(np.array(rewards),np.array(dones),np.array(values),last,gamma=self.gamma)
         tensor=lambda x: torch.tensor(np.array(x),dtype=torch.float32)
-        return dict(obs=tensor(observations).reshape(-1,10),
+        return dict(obs=tensor(observations).reshape(-1,self.obs.shape[-1]),
                     actions=torch.tensor(np.array(actions).flatten()),
-                    logprobs=tensor(logprobs).flatten(), logits=tensor(logits_all).reshape(-1,7),
+                    logprobs=tensor(logprobs).flatten(), logits=tensor(logits_all).reshape(-1,logits.shape[-1]),
                     advantages=tensor(adv).flatten(), returns=tensor(ret).flatten())
 
 
-def train_ppo(checkpoint, out, steps=100000, seed=7, preset='stable', suite=None):
+def train_ppo(checkpoint, out, steps=100000, seed=7, preset='stable', suite=None,sampler_override=None):
     if not 0 <= seed <= 8:
         raise ValueError('Training seed must be 0–8 to preserve reserved evaluation ranges')
     if steps < 1:
         raise ValueError('Steps must be positive')
-    sampler=None
+    if suite and sampler_override: raise ValueError('Choose suite or sampler_override')
+    sampler=sampler_override
     if suite:
         from benchmark import ManifestSampler
         sampler=ManifestSampler(suite)
@@ -118,10 +119,11 @@ def train_ppo(checkpoint, out, steps=100000, seed=7, preset='stable', suite=None
     stable=preset=='stable'
     config=dict(preset=preset,seed=seed,requested_steps=steps,actor_lr=3e-5 if stable else 3e-4,
                 value_lr=3e-4,entropy_coef=.001 if stable else .01,target_kl=.01 if stable else None,
-                gamma=GAMMA,gae_lambda=.95,clip=.2,epochs=4,batch_size=256,
+                gamma=getattr(sampler,'gamma',GAMMA),gae_lambda=.95,clip=.2,epochs=4,batch_size=256,
                 num_envs=16,rollout_length=128,value_warmup_steps=0,value_warmup_episodes=256 if stable else 0,
                 torch_version=torch.__version__,numpy_version=np.__version__,
                 checkpoint=str(checkpoint),checkpoint_sha256=hashlib.sha256(checkpoint.read_bytes()).hexdigest())
+    config.update(input_dim=source.body[0].in_features,action_dim=source.actor.out_features)
     if sampler:
         config.update(environment=sampler.data['environment'],suite=str(suite),training_manifest_sha256=sampler.sha256)
         (out/'training_manifest.json').write_text(json.dumps(sampler.data,sort_keys=True,indent=2)+'\n')
@@ -136,8 +138,7 @@ def train_ppo(checkpoint, out, steps=100000, seed=7, preset='stable', suite=None
         observations, targets=[],[]
         for s in range(500000+seed*1000,500000+seed*1000+256):
             if sampler:
-                from failure_env import FailureEnv
-                env=FailureEnv(); obs=sampler.reset(env,s)
+                env=sampler.make_env(); obs=sampler.reset(env,s)
             else:
                 env=RecoveryEnv(); obs=env.reset(s,KINDS[s%4])
             trajectory=[]
@@ -147,7 +148,7 @@ def train_ppo(checkpoint, out, steps=100000, seed=7, preset='stable', suite=None
                 nxt,reward,_,_=env.step(action); trajectory.append((obs,reward)); obs=nxt
             total=0
             for o,r in reversed(trajectory):
-                total=r+GAMMA*total; observations.append(o); targets.append(total)
+                total=r+config['gamma']*total; observations.append(o); targets.append(total)
         config['value_warmup_steps']=len(observations)
         ox=torch.tensor(observations); target=torch.tensor(targets)
         for _ in range(20):

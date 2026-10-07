@@ -2,7 +2,7 @@
 
 A local, robotics-inspired reinforcement-learning laboratory: a gripper must recover from missed grasps, dropped objects, and stale object positions to place a block in a target.
 
-**New:** [the failure composition benchmark](BENCHMARK.md) adds configurable event counts, probabilities, delays and displacement radii, plus hash-checked train/development/final-test manifests. The original environment remains available unchanged. Use `benchmark.html` for the new viewer and `index.html` for the original one.
+**New:** [grasp choice under a deadline](GRASP.md) adds fast versus secure grasps, persistent hidden failure risk, and a real time/reliability tradeoff. Use `grasp.html` after exporting its evaluation report. The [failure composition benchmark](BENCHMARK.md) and original environment remain available at `benchmark.html` and `index.html`.
 
 **Scope:** this is a 5×5 discrete grid environment, not rigid-body physics, a vision model, an LLM, or real-robot control. The learned policy is a small PyTorch MLP. It is first trained on scripted demonstrations, then updated with PPO. No paid API, account, robot hardware, or GPU is required.
 
@@ -84,7 +84,7 @@ All four conditions are encountered in training; new seeds are not evidence of n
 
 ## Next milestones
 
-1. Add held-out disturbance combinations, train/test spatial splits, and stochastic severity: the current task is saturated.
+1. Extend the new grasp/deadline experiment with stronger supervised controls and spatial holdouts; the earlier composition benchmark remains saturated.
 2. Test reward-shaping ablations and independently trained supervised starting models.
 3. Introduce recurrent policies for longer partial-observation tasks.
 4. Port the action and observation contract to ManiSkill with fixed motion primitives.

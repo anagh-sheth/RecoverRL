@@ -131,14 +131,14 @@ class FixedSequence:
         return self.actions.pop(0) if self.actions else 6
 
 
-def make_model(separate_value=False):
+def make_model(separate_value=False,input_dim=10,action_dim=7):
     import torch
     from torch import nn
     class Policy(nn.Module):
         def __init__(self):
             super().__init__()
-            self.body = nn.Sequential(nn.Linear(10,64), nn.Tanh(), nn.Linear(64,64), nn.Tanh())
-            self.actor, self.critic = nn.Linear(64,7), nn.Linear(64,1)
+            self.body = nn.Sequential(nn.Linear(input_dim,64), nn.Tanh(), nn.Linear(64,64), nn.Tanh())
+            self.actor, self.critic = nn.Linear(64,action_dim), nn.Linear(64,1)
             if separate_value:
                 import copy
                 self.value_body = copy.deepcopy(self.body)
@@ -157,7 +157,8 @@ def save_model(model, path):
 def load_model(path):
     import torch
     state = torch.load(path, map_location='cpu', weights_only=True)
-    model = make_model(separate_value=any(k.startswith('value_body.') for k in state))
+    model = make_model(separate_value=any(k.startswith('value_body.') for k in state),
+                       input_dim=state['body.0.weight'].shape[1],action_dim=state['actor.weight'].shape[0])
     model.load_state_dict(state)
     model.eval()
     return model
